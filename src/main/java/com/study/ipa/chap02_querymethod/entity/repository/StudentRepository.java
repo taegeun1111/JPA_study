@@ -2,6 +2,7 @@ package com.study.ipa.chap02_querymethod.entity.repository;
 
 import com.study.ipa.chap02_querymethod.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -44,4 +45,8 @@ public interface StudentRepository
     List<Student> searchByNamesWithJPQL(@Param("nm") String name);
 
 
+    //JPQL로 수정 삭제 쿼리 쓰기
+    @Modifying  //조회가 아닐 경우 무조건 붙여야 함
+    @Query("DELETE FROM Student s WHERE s.name = :nm")
+    void deleteByNameWithJQPL(@Param("nm") String name);
 }
