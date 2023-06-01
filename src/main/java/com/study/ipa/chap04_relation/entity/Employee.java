@@ -25,7 +25,7 @@ public class Employee {
     //EAGER : 항상 무조건 조인을 수행
     //LAZY : 필요한 경우에만 조인을 수행(묵인)
     //단방향 연관관계
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dept_id")
     private Department department;
 }

@@ -69,29 +69,30 @@ class EmployeeRepositoryTest {
         //given
         Long id = 2L;
         //when
-        Employee employee
-                = employeeRepository
-                .findById(id)
-                .orElseThrow(
-                        () -> new RuntimeException("사원이 없음")
-                );
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(()-> new RuntimeException("사원이 없음"));
         //then
         System.out.println("\n\n\n");
         System.out.println("employee = " + employee);
         System.out.println("\n\n\n");
 
         assertEquals("어피치", employee.getName());
+
     }
 
-//    @Test
-//    @DisplayName("부서 정보 조회")
-//    void testFindOne(){
-//        //given
-//
-//        //when
-//
-//        //then
-//    }
+    @Test
+    @DisplayName("부서 정보 조회")
+    void testFindO2ne(){
+        //given
+            Long id = 1L;
+        //when
+        Department department = departmentRepository.findById(id)
+                .orElseThrow();
+        //then
+        System.out.println("\n\n\n");
+        System.out.println("department = " + department);
+        System.out.println("\n\n\n");
+    }
 
 
 
